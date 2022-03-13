@@ -11,7 +11,7 @@ function doGit() {
 
 function kill_server() {
 	logWindow=$(tasklist //FI "ImageName eq LongVinterServer-Win64-Shipping.exe" | grep Long)
-	if [[ ! -z execLine ]];then
+	if [[ ! -z $logWindow ]];then
 		IFS=' ' read -r -a array <<< "$logWindow"
 		taskkill //PID ${array[1]} //F
 	fi
@@ -23,7 +23,9 @@ function run_server() {
 
 function is_running() {
 	logWindow=$(tasklist //FI "ImageName eq LongVinterServer-Win64-Shipping.exe" | grep Long)
-	echo ${logWindow}
+	if [[ ! -z $logWindow ]];then
+		echo ${logWindow}
+	fi
 }
 
 if [ $# -eq 0 ];then
