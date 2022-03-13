@@ -1,5 +1,5 @@
 # longvinter-bashmanager
-To control GIT lifecycle of the server
+To control GIT lifecycle of the server + some more QoL services
 
 Commands available:
 
