@@ -15,6 +15,7 @@ stop the server to update it, and finally starts server back*
 <br><br>
 - `./manager.sh kill`<br>
 *Stops server*
+<br><br>
 - `./manager.sh status`<br>
 *Check if server is running*
 
