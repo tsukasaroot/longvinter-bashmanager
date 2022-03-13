@@ -17,4 +17,13 @@ stop the server to update it, and finally starts server back*
 *Stops server*
 
 ---
+Setting up with Task Scheduler on windows
+-
+
+Open task scheduler, then create a new task.
+Follow pictures settings as followed :<br>
+![Screenshot](README_pics/1.PNG)<br>
+![Screenshot](README_pics/2.PNG)<br>
+![Screenshot](README_pics/3.PNG)
+---
 This script is provided as-is, minimum support will be provided.
