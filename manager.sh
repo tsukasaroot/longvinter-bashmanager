@@ -25,6 +25,16 @@ function is_running() {
 	logWindow=$(tasklist //FI "ImageName eq LongVinterServer-Win64-Shipping.exe" | grep Long)
 	if [[ ! -z $logWindow ]];then
 		echo ${logWindow}
+		return 1
+	fi
+	return 0
+}
+
+function oncrash_reboot()
+{
+	if [[ is_running -eq 0 ]];then
+		echo "server down, rebooting..."
+		run_server
 	fi
 }
 
@@ -63,4 +73,8 @@ fi
 
 if [[ $@ == *"status"* ]];then
 	is_running
+fi
+
+if [[ $@ == *"checkCrash"* ]];then
+	oncrash_reboot
 fi

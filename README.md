@@ -18,7 +18,9 @@ stop the server to update it, and finally starts server back*
 <br><br>
 - `./manager.sh status`<br>
 *Check if server is running*
-
+<br><br>
+- `./manager.sh checkCrash`
+*Will check that server is running, reboot it if it's not, to setup with a cron/ Task Scheduler ideally*
 ---
 Setting up with Task Scheduler on windows
 -
