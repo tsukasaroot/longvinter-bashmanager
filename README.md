@@ -15,6 +15,8 @@ stop the server to update it, and finally starts server back*
 <br><br>
 - `./manager.sh kill`<br>
 *Stops server*
+- `./manager.sh status`<br>
+*Check if server is running*
 
 ---
 Setting up with Task Scheduler on windows

@@ -21,6 +21,11 @@ function run_server() {
 	./LongVinterServer.exe &> /dev/null &
 }
 
+function is_running() {
+	logWindow=$(tasklist //FI "ImageName eq LongVinterServer-Win64-Shipping.exe" | grep Long)
+	echo ${logWindow}
+}
+
 if [ $# -eq 0 ];then
 	doGit
 	run_server
@@ -52,4 +57,8 @@ fi
 if [[ $@ == *"kill"* ]];then
 	#Sends global message to all ingame players (through API maybe?)
 	kill_server
+fi
+
+if [[ $@ == *"status"* ]];then
+	is_running
 fi
