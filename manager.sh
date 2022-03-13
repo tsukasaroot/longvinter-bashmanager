@@ -23,26 +23,39 @@ function run_server() {
 
 function is_running() {
 	logWindow=$(tasklist //FI "ImageName eq LongVinterServer-Win64-Shipping.exe" | grep Long)
-	if [[ ! -z $logWindow ]];then
-		echo ${logWindow}
-		return 1
+	if [[ ! -z logWindow ]];then
+		IFS=' ' read -r -a array <<< "$logWindow"
+		if [[ $array == "LongvinterServer-Win64-Sh" ]];then
+			echo "1"
+		else
+			echo "0"
+		fi
+	else
+		echo "0"
 	fi
-	return 0
+
 }
 
 function oncrash_reboot()
 {
-	if [[ is_running -eq 0 ]];then
+	local r=$(is_running)
+
+	if [[ r -eq 0 ]];then
 		echo "server down, rebooting..."
 		run_server
 	fi
 }
 
 if [ $# -eq 0 ];then
-	doGit
-	run_server
-	sleep 7
-	getKey
+	r=$(is_running)
+	if [[ $r == "0" ]];then
+		doGit
+		run_server
+		sleep 7
+		getKey
+	else
+		echo "Server is already up"
+	fi
 fi
 
 if [[ $@ == *"getKey"* ]];then
