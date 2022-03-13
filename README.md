@@ -32,3 +32,4 @@ Follow pictures settings as followed :<br>
 ![Screenshot](README_pics/3.PNG)
 ---
 This script is provided as-is, minimum support will be provided.
+This will prob be rewritten as a web application if we get a way to directly send informations to game server through a dedicated port.
